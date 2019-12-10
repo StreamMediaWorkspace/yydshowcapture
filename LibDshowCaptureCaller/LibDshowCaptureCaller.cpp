@@ -9,7 +9,7 @@
 
 using namespace DShow;
 
-#pragma comment(lib, "../vs/2013/Debug/dshowcapture.lib")
+#pragma comment(lib, "../vs/2015/Debug/dshowcapture.lib")
 #pragma comment(lib, "./libs/release/turbojpeg-static.lib")
 #ifdef _DEBUG
 #pragma comment(lib, "./libs/debug/yuv.lib")
