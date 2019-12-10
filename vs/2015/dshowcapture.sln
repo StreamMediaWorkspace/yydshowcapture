@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dshowcapture", "dshowcapture\dshowcapture.vcxproj", "{FFF52519-38BB-4155-851D-4209EC67ACA7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibDShowCapture", "dshowcapture\dshowcapture.vcxproj", "{FFF52519-38BB-4155-851D-4209EC67ACA7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibDshowCaptureCaller", "..\..\LibDshowCaptureCaller\LibDshowCaptureCaller.vcxproj", "{34ABADDB-54BE-4BB5-8C01-50B623D6B84D}"
 	ProjectSection(ProjectDependencies) = postProject

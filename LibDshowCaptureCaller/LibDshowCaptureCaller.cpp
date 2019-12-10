@@ -6,7 +6,6 @@
 #include "../dshowcapture.hpp"
 #include "./libyuv.h"
 
-
 using namespace DShow;
 
 #pragma comment(lib, "../vs/2015/Debug/dshowcapture.lib")
@@ -17,9 +16,7 @@ using namespace DShow;
 #pragma comment(lib, "./libs/release/yuv.lib")
 #endif // DEBUG
 
-
-
-void Log(LogType type, const wchar_t *msg, void *param) {
+void LibDShowCaptureLog(LogType type, const wchar_t *msg, void *param) {
     switch (type) {
     case LogType::Error:
         printf("[Error]");
@@ -104,14 +101,11 @@ void OnVideoData(const VideoConfig &config, unsigned char *data,
 #endif
 }
 
-int main()
-{
-    CoInitialize(NULL);
+void StartCapture() {
     do {
-        SetLogCallback(Log, nullptr);
-
+        SetLogCallback(LibDShowCaptureLog, nullptr);
         Device device(InitGraph::True);
-        
+
         std::vector<AudioDevice> audioDevices;
         Device::EnumAudioDevices(audioDevices);
 
@@ -151,6 +145,13 @@ int main()
 
         device.Stop();
     } while (0);
+}
+
+int main()
+{
+    CoInitialize(NULL);
+    
+    StartCapture();
 
     system("pause");
     CoUninitialize();
