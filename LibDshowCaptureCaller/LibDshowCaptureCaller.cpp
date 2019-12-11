@@ -82,8 +82,33 @@ void OnVideoData(const VideoConfig &config, unsigned char *data,
         forcc = libyuv::FourCC::FOURCC_YUY2;
         break;
 
+    case VideoFormat::I420:
+        forcc = libyuv::FourCC::FOURCC_I420;
+        break;
+
+    case VideoFormat::NV12:
+        forcc = libyuv::FourCC::FOURCC_NV12;
+        break;
+
+    case VideoFormat::YV12:
+        forcc = libyuv::FourCC::FOURCC_YV12;
+        break;
+
+    case VideoFormat::HDYC:
+        forcc = libyuv::FourCC::FOURCC_HDYC;
+        break;
+
+    case VideoFormat::ARGB:
+        forcc = libyuv::FourCC::FOURCC_ARGB;
+        break;
+
     case VideoFormat::MJPEG:
         forcc = libyuv::FourCC::FOURCC_MJPG;
+        break;
+
+    default:
+        printf("error unknown type %d\n", config.format);
+        return;
         break;
     }
 
@@ -127,7 +152,7 @@ void StartCapture() {
         videoConfig.format = VideoFormat::MJPEG;
         videoConfig.cx = 1080;
         videoConfig.cy_abs = 720;
-        videoConfig.name = videoDevices.at(1).name;
+        videoConfig.name = videoDevices.at(0).name;
         videoConfig.callback = OnVideoData;
         if (!device.SetVideoConfig(&videoConfig)) {
             ERROR("SetVideoConfig failed");
